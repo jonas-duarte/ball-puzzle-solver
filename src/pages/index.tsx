@@ -198,7 +198,7 @@ async function createPuzzleWorker(image: string): Promise<string> {
   await worker.loadLanguage('eng');
   await worker.initialize('eng');
   await worker.setParameters({
-    tessedit_char_whitelist: '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ ' // Specify the characters to recognize
+    tessedit_char_whitelist: '0123456789ABCDEFGHIJ ' // Specify the characters to recognize
   });
 
   const { data: { text } } = await worker.recognize(image);

@@ -415,7 +415,7 @@ export default function Home() {
             const utterance = new SpeechSynthesisUtterance(String(stepName))
             utterance.lang = 'pt-BR';
             speechSynthesis.speak(utterance);
-            await new Promise(resolve => setTimeout(resolve, 1000))
+            await new Promise(resolve => setTimeout(resolve, 2000))
             // alert(step)
           }
 

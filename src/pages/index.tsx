@@ -412,7 +412,7 @@ export default function Home() {
             const firstLineSize = Math.ceil(puzzleJson.length/2)
             const secondLine = "ABCDEFGHIJKLMNOPQRSTUVXYZ".split('')
             if(stepName > firstLineSize) stepName = secondLine[Number(stepName)%firstLineSize]
-            const utterance = new SpeechSynthesisUtterance()
+            const utterance = new SpeechSynthesisUtterance(String(stepName))
             utterance.lang = 'pt-BR';
             speechSynthesis.speak(utterance);
             await new Promise(resolve => setTimeout(resolve, 1000))

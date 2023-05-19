@@ -408,7 +408,11 @@ export default function Home() {
 
           for (const step of _steps) {
             // text to speech
-            const utterance = new SpeechSynthesisUtterance(step.split('->')[0])
+            let stepName: number|string = parseInt(step.split('->')[0])
+            const firstLineSize = Math.ceil(puzzleJson.length/2)
+            const secondLine = "ABCDEFGHIJKLMNOPQRSTUVXYZ".split('')
+            if(stepName > firstLineSize) stepName = secondLine[Number(stepName)%firstLineSize]
+            const utterance = new SpeechSynthesisUtterance()
             utterance.lang = 'pt-BR';
             speechSynthesis.speak(utterance);
             await new Promise(resolve => setTimeout(resolve, 1000))

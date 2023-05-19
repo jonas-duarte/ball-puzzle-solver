@@ -411,7 +411,7 @@ export default function Home() {
             let stepName: number|string = parseInt(step.split('->')[0])
             const firstLineSize = Math.ceil(puzzleJson.length/2)
             const secondLine = "ABCDEFGHIJKLMNOPQRSTUVXYZ".split('')
-            if(stepName > firstLineSize) stepName = secondLine[Number(stepName)%firstLineSize]
+            if(stepName > firstLineSize) stepName = secondLine[(Number(stepName)-1)%firstLineSize]
             const utterance = new SpeechSynthesisUtterance(String(stepName))
             utterance.lang = 'pt-BR';
             speechSynthesis.speak(utterance);
